@@ -1,0 +1,369 @@
+@import 'slick';
+@import 'slick-theme';
+@colorCarusel: #fff;
+@fontSize: 16px;
+@buttonColor: #20ab50;
+@hoverButtonColor: #080;
+@bulletBgolor: #dcdcdc;
+@textColor: #000;
+@siteColor: #1faa50;
+@colorSite: #000;
+@footerColor: #f3f3f3;
+@searcholor: #8c8c8c;
+@fontFamilyNunito:Nunito, sans-serif;
+@fontFamilyYantramanav:Yantramanav, sans-serif;
+@mobile: ~"only screen and (max-width:480px)";
+@tablet: ~"only screen and (min-width: 800px)";
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    color: @colorSite;
+}
+
+header {
+    position: relative;
+}
+
+.top-header {
+    &_list {
+        padding: 0;
+        margin: 0;
+        position: relative;
+        img {
+            width: 100%;
+        }
+    }
+    &_logo {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        @media @mobile{
+            top:0;
+            left:10px;
+        }
+        @media @tablet{
+            top: 35px;
+            left: 78px;
+        }
+    }
+    &_info {
+        font-family: @fontFamilyNunito;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+        text-align: center;
+        width: 100%;
+        @media @tablet{
+            width: auto;
+            transform: translate(-50%, -80%);
+        }
+        h1 {
+            font-size: @fontSize*2;
+            font-weight: 300;
+            color: @colorCarusel;
+            margin-bottom: 0;
+            @media @tablet{
+                font-size: @fontSize*3.7;
+            }
+        }
+        p {
+            font-family: @fontFamilyYantramanav;
+            font-size: @fontSize;
+            font-weight: 300;
+            color: @colorCarusel;
+            padding: 0 25px;
+            @media @mobile{
+                margin:0;
+                font-size: @fontSize*0.8;
+            }
+            @media @tablet{
+                font-size: @fontSize*1.25;
+                max-width: 570px;
+            }
+        }
+    }
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: stretch;
+    padding-bottom: 20px;
+    @media @tablet{
+        margin-top: 50px;
+    }
+    input[type="text"] {
+        flex: 0 0 133px;
+        height: 47px;
+        border-radius: 20px 0 0 20px;
+        border: 1px solid @colorCarusel;
+        padding: 0 30px;
+        outline: none;
+        font-size: @fontSize*0.9;
+        color: @searcholor;
+        font-weight: 300;
+        font-family:@fontFamilyYantramanav;
+        &:focus {
+            box-shadow: inset 0 0 10px @buttonColor;
+        }
+        @media @tablet{
+            flex: 0 0 250px;
+            font-size: @fontSize*1.1;
+        }
+    }
+    &_button {
+        flex: 0 0 67px;
+        height: 49px;
+        background-color: @buttonColor;
+        color: @colorCarusel;
+        font-size: @fontSize*0.9;
+        border: none;
+        border-radius: 0 20px 20px 0;
+        outline: none;
+        font-family:@fontFamilyNunito;
+        font-weight: 400;
+        &:hover {
+            background-color: @hoverButtonColor;
+        }
+        @media @tablet{
+            flex: 0 0 163px;
+            font-size: @fontSize*1.25;
+        }
+    }
+}
+
+.plae {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    @media @tablet{
+        flex-direction: row;
+    }
+    &_about {
+        flex: 1 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &_text {
+            font-family:@fontFamilyYantramanav;
+            flex: 1 1;
+            padding: 40px 15px;
+            max-width: 390px;
+            font-weight: normal;
+            line-height: 24px;
+            p {
+                margin: 30px 0;
+                letter-spacing: 0.5px;
+            }
+            h2 {
+                text-align: center;
+                @media @tablet{
+                    margin-top: 20px;
+                    padding-bottom: 80px;
+                }
+            }
+            .review {
+                font-size: @fontSize*1.25;
+                color: @textColor;
+                font-weight: 100;
+                text-align: center;
+                line-height: 30px;
+                position: relative;
+                margin: 50px 0 80px 0;
+                &:before {
+                    content: "“";
+                    position: absolute;
+                    left: 0;
+                    bottom: 100%;
+                    font-family:@fontFamilyNunito;
+                    color: @bulletBgolor;
+                    font-size: @fontSize*4.5;
+                    font-weight: 300;
+                }
+                &:after {
+                    content: "“";
+                    position: absolute;
+                    right: 0;
+                    bottom: -50px;
+                    font-family: @fontFamilyNunito;
+                    color: @bulletBgolor;
+                    font-size: @fontSize*4.5;
+                    font-weight: 300;
+                }
+            }
+            div {
+                text-align: center;
+                font-size: @fontSize*1.1;
+            }
+        }
+        span {
+            font-size: @fontSize*4;
+            color: @bulletBgolor;
+        }
+    }
+    &_picture {
+        background-size: cover;
+        background-position: center;
+        flex: 1 1;
+        min-height: 100vh;
+        order: 1;
+        @media @tablet{
+            order: 0;
+        }
+    }
+}
+
+.slider {
+    text-align: center;
+    margin-top: 60px;
+    &_text {
+        margin-bottom: 80px;
+        padding: 0 15px;
+    }
+    &_name {
+        font-family: @fontFamilyNunito;
+        font-size: @fontSize*1.5;
+        font-weight: 300;
+        margin-bottom: 35px;
+    }
+    &_number {
+        font-family:@fontFamilyYantramanav;
+        font-size: @fontSize*1.1;
+        font-weight: 100;
+    }
+}
+
+h2 {
+    font-family:@fontFamilyNunito;
+    font-size: @fontSize*1.9;
+    font-weight: 300;
+}
+
+.short_info {
+    font-family: @fontFamilyYantramanav;
+    font-weight: 100;
+    font-size: @fontSize*1.1;
+}
+
+.quality {
+    background-image: url(../img/quality.jpg);
+    background-position: center;
+    width: 100%;
+    min-height: 60vw;
+    text-align: center;
+    background-size: cover;
+    @media @tablet{
+        padding: 50px 0;
+    }
+    h2 {
+        margin-bottom: 0;
+        font-size: @fontSize*1.4;
+        @media @tablet{
+            margin-bottom: 10px;
+            font-size: @fontSize*1.9;
+        }
+    }
+    .short_info {
+        font-size: @fontSize*0.7;
+        @media @tablet{
+            font-size: @fontSize*1.1;
+        }
+    }
+}
+
+.address {
+    text-align: center;
+    padding: 50px 0;
+    h3 {
+        font-size: @fontSize;
+        font-weight: 600;
+        margin: 0;
+    }
+    &_location {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+        font-family: @fontFamilyYantramanav;
+        flex-wrap: wrap;
+        max-width: 1040px;
+        margin: 0 auto;
+        &_magazine {
+            font-size: @fontSize*0.95;
+            font-weight: 100;
+            padding: 35px;
+        }
+        a {
+            text-decoration: none;
+            color: @colorSite;
+            display: block;
+        }
+        .site {
+            color: @siteColor;
+            font-size: @fontSize*0.95;
+            font-weight: 100;
+        }
+    }
+}
+
+.contact {
+    text-align: center;
+    padding-bottom: 50px;
+    h2 {
+        font-size: @fontSize*1.5;
+    }
+    &_links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @media @tablet{
+            flex-direction: row;
+        }
+        a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: @fontSize*1.1;
+            color: @colorSite;
+            font-family: @fontFamilyYantramanav;
+            @media @tablet{
+                flex-direction: row;
+                padding: 40px;
+            }
+        }
+        .site {
+            color: @siteColor;
+        }
+    }
+}
+
+footer {
+    background-color: @footerColor;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 130px 0;
+    h2 {
+        margin-bottom: 10px;
+    }
+    h3 {
+        font-size: @fontSize*1.4;
+        font-family: @fontFamilyYantramanav;
+        font-weight: 300;
+        margin: 0;
+    }
+}
+
+.copyright {
+    background-color: @bulletBgolor;
+    color: @colorCarusel;
+    padding: 15px 35px;
+    font-family: @fontFamilyYantramanav;
+    font-size: @fontSize*0.9;
+    font-weight: 400;
+}
